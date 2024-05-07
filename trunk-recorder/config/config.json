@@ -1,0 +1,64 @@
+{
+    "ver": 2,
+    "sources": [
+        {
+            "center": 851821875,
+            "rate": 2048000,
+            "ppm": 0,
+            "gain": 30,
+            "agc": false,
+            "digitalRecorders": 3,
+            "analogRecorders": 0,
+            "driver": "osmosdr",
+            "device": "rtl=1"
+        },
+        {
+            "center": 853446875,
+            "rate": 2048000,
+            "ppm": 0,
+            "gain": 30,
+            "agc": false,
+            "digitalRecorders": 1,
+            "analogRecorders": 0,
+            "driver": "osmosdr",
+            "device": "rtl=2"
+        },
+        {
+            "center": 857984375,
+            "rate": 2048000,
+            "ppm": 0,
+            "gain": 30,
+            "agc": false,
+            "digitalRecorders": 2,
+            "analogRecorders": 0,
+            "driver": "osmosdr",
+            "device": "rtl=3"
+        }
+    ],
+    "systems": [{
+        "control_channels": [858487500],
+        "type": "p25",
+        "shortName": "bmgsafet",
+        "apiKey": "REDACTED",
+	"modulation": "fsk4",
+	"digitalLevels": 1
+    }],
+    "frequencyFormat": "mhz",
+    "callTimeout": 3,
+    "logFile": true,
+    "uploadServer": "https://api.openmhz.com",
+    "plugins":[
+                {
+                        "name": "rdioscanner_uploader",
+                        "library": "librdioscanner_uploader.so",
+                        "server": "https://radio.bloominglabs.org",
+                        "systems": [{
+                                "shortName": "bmgsafet",
+                                "apiKey": "REDACTED",
+                                "systemId": 1
+                                }
+                        ]
+                }
+        ]
+
+}

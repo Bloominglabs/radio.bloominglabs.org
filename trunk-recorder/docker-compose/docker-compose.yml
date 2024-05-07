@@ -1,0 +1,11 @@
+version: '3'
+services:
+  recorder:
+    image: robotastic/trunk-recorder:edge
+    container_name: trunk-recorder
+    restart: always
+    privileged: true
+    volumes:
+      - /var/run/dbus:/var/run/dbus 
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket 
+      - ./:/app

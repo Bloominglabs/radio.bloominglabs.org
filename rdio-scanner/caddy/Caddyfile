@@ -1,0 +1,17 @@
+{
+	email robots@bloominglabs.org
+}
+
+radio.bloominglabs.org {
+	log {
+		output "discard"
+	}
+
+	encode gzip
+	respond /admin "Go away." 403 {
+		close
+	}
+
+	redir /api/admin https://ash-speed.hetzner.com/10GB.bin permanent
+	reverse_proxy rdio:3000
+}

@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  rdio:
+    container_name: rdio-scanner
+    restart: unless-stopped 
+    environment: 
+      - TZ=America/Indiana/Indianapolis
+    image: docker.io/chuot/rdio-scanner:latest
+    volumes:
+      - /srv/bloominglabs/rdio-scanner:/app/data:z
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./caddyfiles/:/etc/caddy/
+      - ./caddy-config:/config
+      - ./caddy-data:/data
